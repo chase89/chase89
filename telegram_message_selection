@@ -1,0 +1,12 @@
+from telethon import TelegramClient
+import sys
+
+api_id = your number
+api_hash = 'you hash'
+chat = id channel
+
+with TelegramClient('Anton', api_id, api_hash) as client:
+    for message in client.iter_messages(chat, search='Искомое слово\словосочетание', limit=1):
+        file_path = 'файл_для_сохранения.txt'
+        sys.stdout = open(file_path, "w")
+        print(message.date, message.sender_id, ':', message.text)
